@@ -1,3 +1,4 @@
+#NCPA
 #start with my cent build
 FROM sreinhardt/centos-6-x86_64:latest
 
@@ -14,7 +15,7 @@ openssl-devel mysql-devel fping perl-Net-SNMP openssh-devel net-snmp-utils bind-
 
 #copy and build
 WORKDIR /tmp
-RUN "http://assets.nagios.com/downloads/ncpa/download.php?type=rpm&arch=x86_64&os=el6" -o /tmp/ncpa.rpm
+RUN curl "http://assets.nagios.com/downloads/ncpa/download.php?type=rpm&arch=x86_64&os=el6" -o /tmp/ncpa.rpm
 RUN yum localinstall --nogpgcheck ncpa.rpm -y
 
 #Add config
