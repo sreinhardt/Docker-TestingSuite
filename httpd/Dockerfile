@@ -1,3 +1,4 @@
+# HTTPD
 #start with my cent build
 FROM sreinhardt/centos-6-x86_64:latest
 
@@ -20,7 +21,7 @@ ADD ssl.conf /etc/httpd/conf.d/ssl.conf
 # Add html pages
 ADD www/ /var/
 RUN ls -lart /var/
-RUN ls -lart /var/wwww/
+RUN ls -lart /var/www/
 
 #Post-build docker info
 EXPOSE 80
