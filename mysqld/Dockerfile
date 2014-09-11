@@ -1,4 +1,5 @@
-#start with ubuntu
+#MYSQLD
+#start with my cent build
 FROM sreinhardt/centos-6-x86_64:latest
 
 MAINTAINER Spenser Reinhardt
