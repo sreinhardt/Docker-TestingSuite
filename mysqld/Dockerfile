@@ -3,10 +3,11 @@ FROM sreinhardt/centos-6-x86_64:latest
 
 MAINTAINER Spenser Reinhardt
 
-#copy and build
-ADD http://assets.nagios.com/downloads/...
+#install mysqld
+yum install -y mysql mysql-devel
 
 #Post-build docker info
-EXPOSE [ports]
-WORKDIR /usr/local/[project]/
-#CMD ["binary-to-start"]
+EXPOSE 3306
+WORKDIR /bin/mysql
+VOLUME /var/lib/mysql
+CMD ["./mysqld", "--datadir=/var/lib/mysql", "--user=mysql"]
