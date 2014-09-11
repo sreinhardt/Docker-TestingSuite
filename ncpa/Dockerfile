@@ -39,6 +39,6 @@ RUN make
 RUN make install
 
 #Post-build docker info
-EXPOSE [5693]
+EXPOSE 5693
 WORKDIR /usr/local/ncpa/
 CMD ["./ncpa_posix_listner", "--start"]
