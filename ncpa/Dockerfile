@@ -23,7 +23,7 @@ ADD ncpa.cfg /usr/local/ncpa/etc/ncpa.cfg
 
 #add and untar plugins
 WORKDIR /tmp/
-ADD https://github.com/nagios-plugins/nagios-plugins/archive/release-${plugins-version}.tar.gz /tmp/nagios-plugins-${plugins-version}.t    ar.gz
+ADD https://github.com/nagios-plugins/nagios-plugins/archive/release-${plugins-version}.tar.gz /tmp/nagios-plugins-${plugins-version}.tar.gz
 RUN tar xzvf nagios-plugins-${plugins_version}.tar.gz
 
 # change per version

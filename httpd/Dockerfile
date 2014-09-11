@@ -19,12 +19,11 @@ ADD testing.conf /etc/httpd/conf.d/testing.conf
 ADD ssl.conf /etc/httpd/conf.d/ssl.conf
 
 # Add html pages
-ADD www/ /var/
-RUN ls -lart /var/
+ADD www/ /var/www/
 RUN ls -lart /var/www/
 
 #Post-build docker info
 EXPOSE 80
 EXPOSE 443
 WORKDIR /var/www/
-CMD ["/usr/sbin/httpd"]]
+CMD ["/usr/sbin/httpd"]
