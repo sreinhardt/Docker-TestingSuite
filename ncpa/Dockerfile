@@ -8,7 +8,6 @@ ENV nagios_user nagios
 ENV nagios_group nagios
 ENV plugins_version 2.0.3
 
-
 # deps
 RUN yum install -y wget httpd php gcc glibc glibc-common gd gd-devel make net-snmp automake autoconf \
 openssl-devel mysql-devel fping perl-Net-SNMP openssh-devel net-snmp-utils bind-utils samba-client gettext
@@ -17,6 +16,10 @@ openssl-devel mysql-devel fping perl-Net-SNMP openssh-devel net-snmp-utils bind-
 WORKDIR /tmp
 RUN curl "http://assets.nagios.com/downloads/ncpa/download.php?type=rpm&arch=x86_64&os=el6" -o /tmp/ncpa.rpm
 RUN yum localinstall --nogpgcheck ncpa.rpm -y
+
+# users and groups
+RUN groupadd ${nagios_group}
+RUN usermod -a -G ${nagios_group} nagios
 
 #Add config
 ADD ncpa.cfg /usr/local/ncpa/etc/ncpa.cfg
