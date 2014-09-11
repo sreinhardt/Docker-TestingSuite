@@ -20,7 +20,6 @@ ADD ssl.conf /etc/httpd/conf.d/ssl.conf
 
 # Add html pages
 ADD www/ /var/www/
-RUN ls -lart /var/www/
 
 #Post-build docker info
 EXPOSE 80
