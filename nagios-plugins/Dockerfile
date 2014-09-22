@@ -13,7 +13,7 @@ RUN yum install -y wget httpd php gcc glibc glibc-common gd gd-devel make net-sn
 openssl-devel mysql-devel fping perl-Net-SNMP openssh-devel net-snmp-utils bind-utils samba-client gettext automake libtool
 
 # users and groups
-RUN groupadd ${nagios_group}
+#RUN groupadd ${nagios_group} - not needed since we arent using nagcmd and useradd will add group too
 RUN usermod -a -G ${nagios_group} nagios
 
 #add and untar plugins
