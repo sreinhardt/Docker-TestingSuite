@@ -11,4 +11,5 @@ yum install -y mysql mysql-devel
 EXPOSE 3306
 WORKDIR /bin/mysql
 VOLUME /var/lib/mysql
-CMD ["./mysqld", "--datadir=/var/lib/mysql", "--user=mysql"]
+ENTRYPOINT ["/bin/mysql/mysqld"]
+CMD ["--datadir=/var/lib/mysql --user=mysql"]

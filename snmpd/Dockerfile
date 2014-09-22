@@ -13,4 +13,5 @@ ADD snmpd.conf /etc/snmp/snmpd.conf
 #Post-build docker info
 EXPOSE 161
 WORKDIR /usr/sbin/
-CMD ["./snmpd", "-f"]
+ENTRYPOINT ["/usr/sbin/snmpd"]
+CMD ["-f"]
