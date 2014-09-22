@@ -27,12 +27,12 @@ WORKDIR nagios-plugins-release-2.0.3/
 
 # build and install plugins
 RUN ./tools/setup
-RUN ./configure --with-nagios-user=${nagios_user} --with-nagios-group=${nagios_group} --prefix=/usr/local/ncpa --libexecdir=/usr/local/ncpa/plugins
+RUN ./configure --with-nagios-user=${nagios_user} --with-nagios-group=${nagios_group}
 RUN make
 RUN make install
 
 # cleanup
-RUN rm -rf /tmp/nagios-plugins-release-${plugins_version}/
+RUN rm -rf /tmp/nagios-plugins-release-${plugins_version}/ /tmp/nagios-plugins-${plugins-version}.tar.gz
 
 ENTRYPOINT ["/bin/bash"]
 CMD [""]
