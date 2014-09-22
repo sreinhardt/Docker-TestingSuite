@@ -6,6 +6,7 @@ MAINTAINER Spenser Reinhardt
 
 ENV nagios_user nagios
 ENV nagios_group nagios
+ENV nagios_cmd_group nagcmd
 ENV plugins_version 2.0.3
 
 # deps
@@ -13,8 +14,8 @@ RUN yum install -y wget httpd php gcc glibc glibc-common gd gd-devel make net-sn
 openssl-devel mysql-devel fping perl-Net-SNMP openssh-devel net-snmp-utils bind-utils samba-client gettext automake libtool
 
 # users and groups
-#RUN groupadd ${nagios_group} - not needed since we arent using nagcmd and useradd will add group too
-RUN usermod -a -G ${nagios_group} nagios
+RUN groupadd ${nagios_cmd_group}
+RUN usermod -a -G ${nagios_cmd_group} -U nagios
 
 #add and untar plugins
 WORKDIR /tmp/
