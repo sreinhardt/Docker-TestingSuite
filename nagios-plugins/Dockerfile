@@ -15,7 +15,7 @@ openssl-devel mysql-devel fping perl-Net-SNMP openssh-devel net-snmp-utils bind-
 
 # users and groups
 RUN groupadd ${nagios_cmd_group}
-RUN usermod -a -G ${nagios_cmd_group} -U nagios
+RUN useradd ${nagios_user} -G ${nagios_cmd_group} -U -s /bin/nologin -M -d /usr/local/nagios/
 
 #add and untar plugins
 WORKDIR /tmp/
