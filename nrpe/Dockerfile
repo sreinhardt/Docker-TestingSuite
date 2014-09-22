@@ -1,5 +1,5 @@
 #start with ubuntu
-FROM sreinhardt/nagios-testingsuite:nagios-plugins
+FROM sreinhardt/nagios-testing-suite:nagios-plugins
 
 MAINTAINER Spenser Reinhardt
 
