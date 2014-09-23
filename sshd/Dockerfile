@@ -1,4 +1,5 @@
-#start with ubuntu
+# SSHD
+#start with plugins
 FROM sreinhardt/nagios-testing-suite:nagios-plugins
 
 MAINTAINER Spenser Reinhardt
@@ -14,7 +15,7 @@ RUN chmod 400 /usr/local/nagios/.ssh -R
 RUN /etc/init.d/sshd start
 
 #Post-build docker info
-EXPOSE ["22"]
+EXPOSE 22
 WORKDIR /usr/local/nagios/libexec/
 ENTRYPOINT ["/usr/sbin/sshd"]
 CMD [""]
