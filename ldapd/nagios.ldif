@@ -1,0 +1,5 @@
+dn: dc=nagios,dc=local
+objectClass: dcObject
+objectClass: organization
+dc: nagios
+o : nagios

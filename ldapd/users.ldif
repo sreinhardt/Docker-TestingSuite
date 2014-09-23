@@ -1,0 +1,15 @@
+dn: ou=Users,dc=nagios,dc=local
+objectClass: organizationalUnit
+ou: Users
+
+dn: cn=Bob Jones,ou=Users,dc=nagios,dc=local
+cn: Bob Jones
+sn: Jones
+objectClass: inetOrgPerson
+userPassword: p@ssw0rd
+uid: bjones
+
+dn: cn=Engineering,ou=Users,dc=nagios,dc=local
+cn: Engineering
+objectClass: groupOfNames
+member: cn=Bob Jones,ou=Users,dc=nagios,dc=local

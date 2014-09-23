@@ -1,0 +1,48 @@
+dn: olcDatabase={2}bdb
+objectClass: olcDatabaseConfig
+objectClass: olcBdbConfig
+olcDatabase: {2}bdb
+olcSuffix: dc=nagios,dc=local
+olcAddContentAcl: FALSE
+olcLastMod: TRUE
+olcMaxDerefDepth: 15
+olcReadOnly: FALSE
+olcRootDN: cn=Manager,dc=nagios,dc=local
+olcSyncUseSubentry: FALSE
+olcMonitoring: TRUE
+olcDbDirectory: /var/lib/ldap
+olcDbCacheSize: 1000
+olcDbCheckpoint: 1024 15
+olcDbNoSync: FALSE
+olcDbDirtyRead: FALSE
+olcDbIDLcacheSize: 0
+olcDbIndex: objectClass pres,eq
+olcDbIndex: cn pres,eq,sub
+olcDbIndex: uid pres,eq,sub
+olcDbIndex: uidNumber pres,eq
+olcDbIndex: gidNumber pres,eq
+olcDbIndex: mail pres,eq,sub
+olcDbIndex: ou pres,eq,sub
+olcDbIndex: loginShell pres,eq
+olcDbIndex: sn pres,eq,sub
+olcDbIndex: givenName pres,eq,sub
+olcDbIndex: memberUid pres,eq,sub
+olcDbIndex: nisMapName pres,eq,sub
+olcDbIndex: nisMapEntry pres,eq,sub
+olcDbLinearIndex: FALSE
+olcDbMode: 0600
+olcDbSearchStack: 16
+olcDbShmKey: 0
+olcDbCacheFree: 1
+olcDbDNcacheSize: 0
+olcRootPW: {SSHA}wWrL0qzKaeF4ojuQYoW2gsbxVffSg+/h
+structuralObjectClass: olcBdbConfig
+entryUUID: 55d76e92-d7ad-1033-9818-d90a5187c84c
+creatorsName: cn=config
+createTimestamp: 20140923203835Z
+entryCSN: 20140923203835.671207Z#000000#000#000000
+modifiersName: cn=config
+modifyTimestamp: 20140923203835Z
+olcAccess: {0}to attrs=userPassword by self write by dn.base="cn=Manager,dc=nagios,dc=local" write by anonymous auth by * none
+olcAccess: {1}to * by dn.base="cn=Manager,dc=nagios,dc=local" write by self write by * read
+
