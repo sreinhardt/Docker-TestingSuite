@@ -10,11 +10,12 @@ ENV PGLOG /var/lib/pgsql/pgsql.log
 #install
 RUN yum install postgresql-server -y
 
+RUN /etc/init.d/postgresql start
+
 #all future commands and container run as postgres user
 USER postgres
 
-RUN /etc/init.d/postgresql start && \
-psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" && \
+RUN psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" && \
 createdb -O docker docker
 
 #Post-build docker info
