@@ -7,7 +7,7 @@ ENV nrpe_ver 2-14
 
 #Download and untar
 WORKDIR /tmp/
-ADD https://github.com/NagiosEnterprises/nrpe/archive/nrpe-2-14.tar.gz
+ADD https://github.com/NagiosEnterprises/nrpe/archive/nrpe-2-14.tar.gz /tmp/nrpe-2-14.tar.gz
 RUN tar xzf nrpe-${nrpe_ver}.tar.gz
 
 WORKDIR nrpe-nrpe-2-14/
