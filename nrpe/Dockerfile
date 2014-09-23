@@ -23,7 +23,7 @@ WORKDIR /tmp/
 RUN rm -rf nrpe*
 
 #Post-build docker info
-EXPOSE ["5666"]
+EXPOSE 5666
 WORKDIR /usr/local/nagios/
 ENTRYPOINT ["/usr/local/nagios/bin/nrpe"]
 CMD ["-c /usr/local/nagios/etc/nrpe.cfg -4 -d"]
