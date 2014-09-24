@@ -3,6 +3,7 @@ FROM sreinhardt/centos-6-x86_64:latest
 
 MAINTAINER Spenser Reinhardt
 
+RUN yum search mongo
 RUN yum install mongodb-server -y
 
 #copy config
