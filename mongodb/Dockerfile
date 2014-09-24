@@ -6,6 +6,9 @@ MAINTAINER Spenser Reinhardt
 ADD http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm /tmp/rpmforge.rpm
 RUN rpm -Uvh /tmp/rpmforge.rpm
 
+ADD http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm /tmp/epel.rpm
+RUN rpm -Uvh epel.rpm
+
 RUN yum search mongo
 RUN yum install mongodb-server -y
 
