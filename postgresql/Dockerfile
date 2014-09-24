@@ -10,18 +10,18 @@ ENV PGLOG /var/lib/pgsql/pgsql.log
 #install
 RUN yum install postgresql-server -y
 
-RUN /etc/init.d/postgresql initdb && /etc/init.d/postgresql start
+#initdb so we can start service
+RUN /etc/init.d/postgresql initdb
 
-#all future commands and container run as postgres user
-USER postgres
+#add commands
+ADD psql-commands /tmp/psql-commands
 
-RUN psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker\';"
-RUN echo psql --command \"CREATE USER docker WITH SUPERUSER PASSWORD \'docker\'\;\"
-
-RUN psql --command \"CREATE USER docker WITH SUPERUSER PASSWORD \'docker\'\;\" && \
+RUN service postgresql start && sleep 10 && \
+sudo - postgres -c "psql -f /tmp/psql-commands" && \
 createdb -O docker docker
 
 #Post-build docker info
+USER postgres
 EXPOSE 5432
 VOLUME ["/var/log/pgsql/" "/var/lib/pgsql/"]
 WORKDIR /var/lib/pgsql/
