@@ -10,7 +10,7 @@ ENV PGLOG /var/lib/pgsql/pgsql.log
 #install
 RUN yum install postgresql-server -y
 
-RUN /etc/init.d/postgresql start
+RUN /etc/init.d/postgresql init && /etc/init.d/postgresql start
 
 #all future commands and container run as postgres user
 USER postgres
