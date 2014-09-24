@@ -15,7 +15,10 @@ RUN /etc/init.d/postgresql initdb && /etc/init.d/postgresql start
 #all future commands and container run as postgres user
 USER postgres
 
-RUN psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" && \
+RUN psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker\';"
+RUN echo psql --command \"CREATE USER docker WITH SUPERUSER PASSWORD \'docker\'\;\"
+
+RUN psql --command \"CREATE USER docker WITH SUPERUSER PASSWORD \'docker\'\;\" && \
 createdb -O docker docker
 
 #Post-build docker info
