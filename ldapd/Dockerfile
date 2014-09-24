@@ -8,8 +8,8 @@ MAINTAINER Spenser Reinhardt
 RUN yum -y install openldap openldap-clients openldap-servers
 
 #add base configs
-ADD ./olcDatabase\=\{2\}bdb.ldif /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{2\}bdb.ldif
-ADD ./olcDatabase\=\{1\}monitor.ldif /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{1\}monitor.ldif
+ADD olcDatabase={2}bdb.ldif /etc/openldap/slapd.d/cn=config/olcDatabase={2}bdb.ldif
+ADD ./olcDatabase={1}monitor.ldif /etc/openldap/slapd.d/cn=config/olcDatabase={1}monitor.ldif
 
 #initialize servvice
 RUN service slapd start
