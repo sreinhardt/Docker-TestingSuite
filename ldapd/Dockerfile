@@ -10,14 +10,13 @@ RUN yum -y install openldap openldap-clients openldap-servers
 #add base configs
 ADD olcDatabase={2}bdb.ldif /etc/openldap/slapd.d/cn=config/olcDatabase={2}bdb.ldif
 ADD ./olcDatabase={1}monitor.ldif /etc/openldap/slapd.d/cn=config/olcDatabase={1}monitor.ldif
-RUN ls -lva /etc/openldap/slapd.d/cn\=config/
 
 #add ldap tree
 ADD ./nagios.ldif /tmp/nagios.ldif
 ADD ./users.ldif /tmp/users.ldif
-RUN service slapd start && \
+RUN service slapd start && sleep 5 && \
 ldapadd -f /tmp/nagios.ldif -D cn=Manager,dc=nagios,dc=local -w welcome && \
-RUN ldapadd -f /tmp/users.ldif -D cn=Manager,dc=nagios,dc=local -w welcome
+ldapadd -f /tmp/users.ldif -D cn=Manager,dc=nagios,dc=local -w welcome
 
 #Post-build docker info
 EXPOSE 389
