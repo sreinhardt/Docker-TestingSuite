@@ -42,4 +42,4 @@ RUN make install
 EXPOSE 5693
 WORKDIR /usr/local/ncpa/
 ENTRYPOINT ["/usr/local/ncpa/ncpa_posix_listener"]
-CMD ["--start"]
+CMD ["--start", "--nodaemon"]
