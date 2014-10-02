@@ -22,4 +22,4 @@ ldapadd -f /tmp/users.ldif -D cn=Manager,dc=nagios,dc=local -w welcome
 EXPOSE 389
 WORKDIR /root/
 ENTRYPOINT ["/usr/sbin/slapd"]
-CMD ["-4 -h \"ldap:///\" -h \"ldapi:///\" -u ldap -d o"]
+CMD ["-4", "-h ldap:///", "-h ldapi:///", "-u ldap"]
