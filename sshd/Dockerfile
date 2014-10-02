@@ -18,4 +18,4 @@ RUN /etc/init.d/sshd start
 EXPOSE 22
 WORKDIR /usr/local/nagios/libexec/
 ENTRYPOINT ["/usr/sbin/sshd"]
-CMD [""]
+CMD ["-D", "-4"]
