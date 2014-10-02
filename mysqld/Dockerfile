@@ -12,7 +12,7 @@ ENV user mysql
 ENV pid /var/run/mysqld/mysqld.pid
 
 #install mysqld
-yum install -y mysql-server
+RUN yumm install -y mysql-server
 
 RUN service mysqld start && /usr/bin/mysqladmin -u root password 'jumpstart' && service mysqld stop
 
