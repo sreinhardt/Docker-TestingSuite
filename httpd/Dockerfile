@@ -18,12 +18,14 @@ RUN chmod 400 /etc/pki/tls/private/ca.{key,csr}
 ADD testing.conf /etc/httpd/conf.d/testing.conf
 ADD ssl.conf /etc/httpd/conf.d/ssl.conf
 
+RUN htpasswd -bc /etc/httpd/htpasswd.users nagiosadmin nagiosadmin
+
 # Add html pages
-ADD www/ /var/www/
+ADD www/ /var/www/html
 
 #Post-build docker info
 EXPOSE 80
 EXPOSE 443
 WORKDIR /var/www/
 ENTRYPOINT ["/usr/sbin/httpd"]
-CMD [""]
+CMD ["-DFOREGROUND"]
