@@ -41,5 +41,5 @@ RUN make install
 #Post-build docker info
 EXPOSE 5693
 WORKDIR /usr/local/ncpa/
-ENTRYPOINT ["/usr/local/ncpa/ncpa_posix_listner"]
+ENTRYPOINT ["/usr/local/ncpa/ncpa_posix_listener"]
 CMD ["--start"]
