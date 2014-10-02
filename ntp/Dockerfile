@@ -9,4 +9,4 @@ ADD ntp.conf /etc/ntp.conf
 #Post-build docker info
 EXPOSE 123
 ENTRYPOINT ["/usr/sbin/ntpd"]
-CMD ["-g -u ntp:ntp -p /var/run/ntpd.pid"]
+CMD ["-gn", "-u ntp:ntp", "-p /var/run/ntpd.pid"]
