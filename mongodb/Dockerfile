@@ -20,4 +20,4 @@ EXPOSE 27017
 VOLUME ["/var/log/mongodb/"]
 WORKDIR /usr/bin/
 ENTRYPOINT ["/usr/bin/mongod"]
-CMD ["--quiet", "-f /etc/mongodb.conf", "run", "2>&1 >> /var/log/mongodb/mongodb.log"]
+CMD ["--quiet", "-f", "/etc/mongodb.conf", "run"]
