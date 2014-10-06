@@ -22,4 +22,4 @@ WORKDIR /var/lib/mysql
 VOLUME /var/lib/mysql
 VOLUME /var/log/mysqld
 ENTRYPOINT ["/usr/bin/mysqld_safe"]
-CMD ["--datadir=${datadir}", "--user=${user}", "--pid-file=${pid}", "--basedir=${basedir}", "--socket=${socketfile}", "> /dev/null", "2>&1 >> ${logfile}"]
+CMD ["--datadir=/var/lib/mysql", "--user=mysql", "--pid-file=/var/run/mysqld/mysqld.pid", "--basedir=/usr", "--socket=/var/lib/mysql/mysql.sock", "> /dev/null 2>&1 >> /var/log/mysqld/mysqld.log"]
