@@ -26,4 +26,4 @@ RUN rm -rf nrpe*
 EXPOSE 5666
 WORKDIR /usr/local/nagios/
 ENTRYPOINT ["/usr/local/nagios/bin/nrpe"]
-CMD ["-c /usr/local/nagios/etc/nrpe.cfg", "-d", "-s"]
+CMD ["-c", "/usr/local/nagios/etc/nrpe.cfg", "-d", "-s"]
