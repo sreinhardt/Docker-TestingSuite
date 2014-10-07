@@ -21,5 +21,6 @@ EXPOSE 3306
 WORKDIR /var/lib/mysql
 VOLUME /var/lib/mysql
 VOLUME /var/log/mysqld
-ENTRYPOINT ["/usr/bin/mysqld_safe"]
+USER mysql
+ENTRYPOINT ["/usr/libexec/mysqld "]
 CMD ["--datadir=/var/lib/mysql", "--user=mysql", "--pid-file=/var/run/mysqld/mysqld.pid", "--basedir=/usr", "--socket=/var/lib/mysql/mysql.sock", "> /dev/null 2>&1 >> /var/log/mysqld/mysqld.log"]
